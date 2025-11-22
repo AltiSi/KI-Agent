@@ -6,8 +6,15 @@ import json
 
 class AIService:
     def __init__(self):
-        self.client = Anthropic(api_key=settings.anthropic_api_key)
+        self._client = None
         self.model = "claude-3-5-sonnet-20241022"
+
+    @property
+    def client(self):
+        """Lazy initialization of Anthropic client."""
+        if self._client is None:
+            self._client = Anthropic(api_key=settings.anthropic_api_key)
+        return self._client
 
     def analyze_document(self, document_text: str, filename: str) -> Dict:
         """
