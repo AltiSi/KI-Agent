@@ -9,7 +9,7 @@ from ..database import get_db
 from ..models import Document, Task, Appointment
 from ..schemas import DocumentResponse, TaskCreate, AppointmentCreate
 from ..services.document_processor import document_processor
-from ..services.ai_service import ai_service
+from ..services.ai_factory import ai as ai_service
 from ..config import settings
 
 router = APIRouter(prefix="/api/documents", tags=["documents"])

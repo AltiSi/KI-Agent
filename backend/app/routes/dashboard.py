@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from ..database import get_db
 from ..models import Task, Appointment
 from ..schemas import DashboardResponse
-from ..services.ai_service import ai_service
+from ..services.ai_factory import ai as ai_service
 
 router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
 

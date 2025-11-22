@@ -3,8 +3,15 @@ from typing import Optional
 
 
 class Settings(BaseSettings):
-    # API Keys
-    anthropic_api_key: str
+    # AI Provider: "claude" oder "ollama"
+    ai_provider: str = "ollama"  # Standard: Ollama (kostenlos!)
+
+    # API Keys (nur für Claude nötig)
+    anthropic_api_key: Optional[str] = "dummy-key"
+
+    # Ollama Settings
+    ollama_url: str = "http://localhost:11434/api/generate"
+    ollama_model: str = "llama3.2"  # oder "mistral"
 
     # Datenbank
     database_url: str = "sqlite:///./data/assistant.db"
